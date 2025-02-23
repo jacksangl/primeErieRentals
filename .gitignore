@@ -22,3 +22,40 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env*.local
+
+# Supabase local emulator/development files
+.supabase/
+supabase/.temp/
+supabase/.wrangler/
+supabase/config.toml
+
+# Deno cache and lockfiles
+deno.lock
+.deno/
+
+# Build directories
+dist-ssr/
+.vercel/
+.serverless/
+.functions/
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Debug files
+*.log
+logs/
+debug/
+coverage/
+
+# Local development overrides
+**/local*.json
+**/override.*
