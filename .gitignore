@@ -59,3 +59,4 @@ coverage/
 # Local development overrides
 **/local*.json
 **/override.*
+.vercel

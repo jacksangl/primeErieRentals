@@ -19,56 +19,49 @@ const WaitlistForm = () => {
     } else {
       setStatus('success');
       setEmail('');
+      
+      // Optional: Reset status to 'idle' after 5 seconds if you want to allow re-submissions
+      setTimeout(() => {
+        setStatus('idle');
+      }, 5000);
     }
   };
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto">
-      {!status === 'success' ? (
+      {status !== 'success' ? (
         <>
           <h3 className="text-xl font-semibold text-gray-900 mb-4">Stay Updated</h3>
           <p className="text-gray-600 mb-6">
             Subscribe to receive updates about new property listings and availability.
           </p>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email Address
-              </label>
               <input
                 type="email"
-                id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter your email"
                 required
+                placeholder="Enter your email"
+                className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
-              disabled={status === 'loading'}
+              className="flex items-center justify-center gap-2 bg-blue-600 text-white rounded-lg p-3 hover:bg-blue-700 transition-colors"
             >
-              {status === 'loading' ? (
-                <span>Submitting...</span>
-              ) : (
-                <span>Join Waitlist</span>
-              )}
+              <Send className="w-5 h-5" />
+              <span>{status === 'loading' ? 'Submitting...' : 'Notify Me'}</span>
             </button>
           </form>
         </>
       ) : (
-        <div className="text-center py-8">
-          <div className="text-green-500 text-4xl mb-4">✓</div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">Thank You!</h3>
+        <div className="text-center">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">Thanks for joining!</h3>
           <p className="text-gray-600">
-            You'll receive updates about new properties and availability.
+            We'll keep you updated when new properties become available.
           </p>
         </div>
-      )}
-      {status === 'error' && (
-        <p className="text-red-600 text-sm">Error submitting, please try again</p>
       )}
     </div>
   );
