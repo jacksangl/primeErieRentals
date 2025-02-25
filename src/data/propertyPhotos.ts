@@ -15,7 +15,7 @@ export const propertyPhotos: PropertyPhotos = {
     photos: [
       {
         id: 1,
-        image: 'pictures/single_family_lecom/front.png',
+        image: '/pictures/single_family_lecom/front.png',
         description: 'Front view of the property',
       },
       {

@@ -35,7 +35,7 @@ const PropertyDetailPage: React.FC = () => {
             <div key={photo.id} className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-[1.02]">
               <div className="relative">
                 <img
-                  src={`/${photo.image}`}
+                  src={photo.image}
                   alt={photo.description}
                   className="w-full h-72 object-cover cursor-pointer"
                   onClick={() => setSelectedPhoto(photo)}
