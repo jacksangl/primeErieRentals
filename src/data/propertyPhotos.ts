@@ -20,17 +20,17 @@ export const propertyPhotos: PropertyPhotos = {
       },
       {
         id: 2,
-        image: 'pictures/single_family_lecom/living.png',
+        image: '/pictures/single_family_lecom/living.png',
         description: 'Living room area',
       },
       {
         id: 3,
-        image: 'pictures/single_family_lecom/kitchen.png',
+        image: '/pictures/single_family_lecom/kitchen.png',
         description: 'Modern kitchen',
       },
       {
         id: 4,
-        image: 'pictures/single_family_lecom/floors.png',
+        image: '/pictures/single_family_lecom/floors.png',
         description: 'New Flooring',
       },
 
@@ -43,27 +43,27 @@ export const propertyPhotos: PropertyPhotos = {
     photos: [
       {
         id: 1,
-        image: 'pictures/single_family/front.jpg',
+        image: '/pictures/single_family/front.jpg',
         description: 'Front Angle',
       },
       {
         id: 2,
-        image: 'pictures/single_family/kitchen.jpg',
+        image: '/pictures/single_family/kitchen.jpg',
         description: 'Kitchen View',
       },
       {
         id: 3,
-        image: 'pictures/single_family/inside.jpg',
+        image: '/pictures/single_family/inside.jpg',
         description: 'Inside View',
       },
       {
         id: 4,
-        image: 'pictures/single_family/bathroom.jpg',
+        image: '/pictures/single_family/bathroom.jpg',
         description: 'Full Bathroom',
       },
       {
         id: 5,
-        image: 'pictures/single_family/basement.jpg',
+        image: '/pictures/single_family/basement.jpg',
         description: 'Basement with new boiler',
       },
     ],
@@ -75,32 +75,32 @@ export const propertyPhotos: PropertyPhotos = {
     photos: [
       {
         id: 1,
-        image: 'pictures/single_west/front.png',
+        image: '/pictures/single_west/front.png',
         description: 'Front view of the property',
       },
       {
         id: 2,
-        image: 'pictures/single_west/kitchen.png',
+        image: '/pictures/single_west/kitchen.png',
         description: 'Modern kitchen',
       },
       {
         id: 3,
-        image: 'pictures/single_west/livingroom.png',
+        image: '/pictures/single_west/livingroom.png',
         description: 'Living room area',
       },
       {
         id: 4,
-        image: 'pictures/single_west/backyard.png',
+        image: '/pictures/single_west/backyard.png',
         description: 'Back yard view',
       },
       {
         id: 5,
-        image: 'pictures/single_west/bathroom.png',
+        image: '/pictures/single_west/bathroom.png',
         description: 'Quality bathroom',
       },
       {
         id: 6,
-        image: 'pictures/single_west/upstairs.png',
+        image: '/pictures/single_west/upstairs.png',
         description: 'Wide upstairs space',
       },
     ],
@@ -112,22 +112,22 @@ export const propertyPhotos: PropertyPhotos = {
     photos: [
       {
         id: 1,
-        image: 'pictures/4unit/front.jpg',
+        image: '/pictures/4unit/front.jpg',
         description: 'Front view of the complex',
       },
       {
         id: 2,
-        image: 'pictures/4unit/kitchen.png',
+        image: '/pictures/4unit/kitchen.png',
         description: 'Kitchen View',
       },
       {
         id: 3,
-        image: 'pictures/4unit/basement.png',
+        image: '/pictures/4unit/basement.png',
         description: 'Basement for extra storage',
       },
       {
         id: 4,
-        image: 'pictures/4unit/back.png',
+        image: '/pictures/4unit/back.png',
         description: 'Back exterior view',
       },
     ],
@@ -139,17 +139,17 @@ export const propertyPhotos: PropertyPhotos = {
     photos: [
       {
         id: 1,
-        image: 'pictures/swan/front.png',
+        image: '/pictures/swan/front.png',
         description: 'Building exterior',
       },
       {
         id: 2,
-        image: 'pictures/swan/frontcloseup.jpg',
+        image: '/pictures/swan/frontcloseup.jpg',
         description: 'A more closeup view',
       },
       {
         id: 3,
-        image: 'pictures/swan/closeup.jpg',
+        image: '/pictures/swan/closeup.jpg',
         description: 'Side view closeup',
       },
     ],
@@ -160,17 +160,17 @@ export const propertyPhotos: PropertyPhotos = {
     photos: [
       {
         id: 1,
-        image: 'pictures/canter/front.jpg',
+        image: '/pictures/canter/front.jpg',
         description: 'Front View',
       },
       {
         id: 2,
-        image: 'pictures/canter/back.jpg',
+        image: '/pictures/canter/back.jpg',
         description: 'A View from the Back',
       },
       {
         id: 3,
-        image: 'pictures/canter/parking.jpg',
+        image: '/pictures/canter/parking.jpg',
         description: 'The Parking Area',
       },
     ],

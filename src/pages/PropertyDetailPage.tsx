@@ -57,7 +57,7 @@ const PropertyDetailPage: React.FC = () => {
         >
           <div className="relative max-w-full max-h-[90vh]">
             <img
-              src={`/${selectedPhoto.image}`}
+              src={selectedPhoto.image}
               alt={selectedPhoto.description}
               className="max-w-full max-h-[80vh] mx-auto object-contain"
             />
