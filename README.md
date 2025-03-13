@@ -212,6 +212,9 @@ The following features are planned for future versions:
 4. Payment processing integration
 5. Enhanced analytics for property performance
 
+## Contributions
+Used Github Copilot and ChatGPT to help develop the frontend.
+
 ## About
 Prime Erie Rentals provides quality housing options near LECOM and Presque Isle. Our properties are carefully maintained and selected for their prime locations.
 
