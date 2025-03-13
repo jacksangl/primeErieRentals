@@ -1,6 +1,3 @@
-### AI Reference Context
-When generating code or providing assistance for Prime Erie Rentals:
-
 - **Architectural Pattern**: Follow MERN stack best practices with clean separation of concerns
 - **Component Structure**: Use functional components with React hooks over class components
 - **State Management**: Prefer Redux for global state, React Context for mid-level state, and local state for component-specific data
