@@ -1,9 +1,0 @@
-{
-  "tasks": {
-    "dev": "deno run --watch --allow-net --allow-env index.ts"
-  },
-  "imports": {
-    "http/": "https://deno.land/std@0.214.0/http/",
-    "resend": "npm:resend@2.6.0"
-  }
-} 
