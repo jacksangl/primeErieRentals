@@ -19,3 +19,5 @@
 - **Owner**: A person who owns one or more properties
 - **Lease**: A contract between tenant and owner
 - **Maintenance Request**: A service request submitted by a tenant
+
+Used copilot to make this
