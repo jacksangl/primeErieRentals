@@ -143,7 +143,7 @@ The project utilizes React with TypeScript for the frontend, Supabase for the ba
 ## Design Decisions and Challenges
 
 ### Real-time Updates vs. Polling
-We debated between implementing polling for updates and using Supabase's real-time functionality. The decision to use real-time updates was based on:
+I debated between implementing polling for updates and using Supabase's real-time functionality. The decision to use real-time updates was based on:
 1. Better user experience with immediate updates
 2. Reduced server load compared to frequent polling
 3. Simpler client-side implementation
@@ -161,7 +161,7 @@ The decision to implement automated welcome emails using SQL triggers rather tha
 3. Better separation of concerns
 4. Improved maintainability
 
-During development, we considered a queue-based system for emails but opted for direct triggers due to the relatively low volume of expected waitlist signups and the simplicity of implementation.
+During development, I considered a queue-based system for emails but opted for direct triggers due to the relatively low volume of expected waitlist signups and the simplicity of implementation.
 
 ### Component Architecture
 PropertyCard components were designed to be fully reusable, accepting standardized property data objects. This approach:
@@ -170,15 +170,15 @@ PropertyCard components were designed to be fully reusable, accepting standardiz
 - Reduces code duplication
 - Facilitates testing
 
-A significant challenge was balancing component complexity with reusability. We decided to create more specialized components rather than highly configurable ones to improve maintainability and readability.
+A significant challenge was balancing component complexity with reusability. I decided to create more specialized components rather than highly configurable ones to improve maintainability and readability.
 
 ### Form Validation Strategy
-For the WaitlistForm, we debated between:
+For the WaitlistForm, I debated between:
 1. Client-side validation only
 2. Server-side validation only
 3. Hybrid approach
 
-We implemented a hybrid approach with immediate client-side feedback combined with server-side validation for security. This created challenges with synchronizing error states but ultimately provided the best user experience.
+I implemented a hybrid approach with immediate client-side feedback combined with server-side validation for security. This created challenges with synchronizing error states but ultimately provided the best user experience.
 
 ## Implementation Details
 
@@ -191,7 +191,7 @@ The database design implements relationships between:
 Indexes were created to optimize property searches and waitlist queries, balancing query performance with write efficiency.
 
 ### Authentication Flow
-We implemented a simplified authentication flow for property managers that:
+I implemented a simplified authentication flow for property managers that:
 1. Uses email-based magic links for passwordless login
 2. Sets appropriate session duration
 3. Implements role-based permissions
