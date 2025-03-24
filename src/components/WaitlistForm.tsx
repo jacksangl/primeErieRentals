@@ -1,3 +1,4 @@
+// src/components/WaitlistForm.tsx
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 import { supabase } from '../lib/supabase';
@@ -10,21 +11,25 @@ const WaitlistForm = () => {
     e.preventDefault();
     setStatus('loading');
     
-    const { error } = await supabase
+    // Insert into Supabase
+    const { error: dbError } = await supabase
       .from('emails')
       .insert({ email });
 
-    if (error) {
+    if (dbError) {
+      console.error('Database error:', dbError);
       setStatus('error');
-    } else {
-      setStatus('success');
-      setEmail('');
-      
-      // Optional: Reset status to 'idle' after 5 seconds if you want to allow re-submissions
-      setTimeout(() => {
-        setStatus('idle');
-      }, 5000);
+      return;
     }
+
+    // Set success state
+    setStatus('success');
+    setEmail('');
+    
+    // Reset status after 5 seconds
+    setTimeout(() => {
+      setStatus('idle');
+    }, 5000);
   };
 
   return (
