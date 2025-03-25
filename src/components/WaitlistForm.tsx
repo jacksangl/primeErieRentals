@@ -1,7 +1,7 @@
 // src/components/WaitlistForm.tsx
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { supabase } from '../lib/supabase'; // Update this import to use your regular supabase client
 
 const WaitlistForm = () => {
   const [email, setEmail] = useState('');
@@ -16,20 +16,52 @@ const WaitlistForm = () => {
       .from('emails')
       .insert({ email });
 
-    if (dbError) {
-      console.error('Database error:', dbError);
-      setStatus('error');
-      return;
-    }
+      if (dbError) {
+        // Check if it's a duplicate email error
+        if (dbError.code === '23505' && dbError.message?.includes('emails_email_key')) {
+          // This is a duplicate email - treat as success
+          console.log('Email already in waitlist:', email);
+          setStatus('success');
+          setEmail('');
+          setTimeout(() => {
+            setStatus('idle');
+          }, 5000);
+          return;
+        }
+        
+        // For other database errors
+        console.error('Database error:', dbError);
+        setStatus('error');
+        return;
+      }
 
-    // Set success state
-    setStatus('success');
-    setEmail('');
-    
-    // Reset status after 5 seconds
-    setTimeout(() => {
-      setStatus('idle');
-    }, 5000);
+    // Now call the email API endpoint
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        console.error('Email API error:', await response.text());
+      }
+
+      // Set success state even if email fails (user is still in database)
+      setStatus('success');
+      setEmail('');
+      
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setStatus('idle');
+      }, 5000);
+    } catch (err) {
+      console.error('Error:', err);
+      // Still show success because the database insert worked
+      setStatus('success');
+    }
   };
 
   return (

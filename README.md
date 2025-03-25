@@ -53,23 +53,7 @@ The project utilizes React with TypeScript for the frontend, Supabase for the ba
   - Provides success/error feedback to users
   - Integrates with Supabase for data persistence
 
-- `Footer.tsx`: Provides consistent footer across all pages
-  - Contains contact information and social media links
-  - Implements responsive layout for various screen sizes
-  - Includes copyright and legal information
-
 #### Page Components
-- `HomePage.tsx`: Landing page featuring:
-  - Hero section with call-to-action
-  - Featured properties section
-  - Company overview
-  - Testimonials carousel
-
-- `PropertiesPage.tsx`: Comprehensive listing page that:
-  - Implements filtering and sorting options
-  - Renders PropertyCard components dynamically
-  - Handles loading and error states
-  - Implements pagination for large property sets
 
 - `PropertyDetailPage.tsx`: Detailed view for individual properties:
   - Full image gallery with lightbox functionality
@@ -77,36 +61,6 @@ The project utilizes React with TypeScript for the frontend, Supabase for the ba
   - Availability calendar
   - Contact form specific to the property
   - Location map integration
-
-- `ContactPage.tsx`: Dedicated contact interface:
-  - General inquiry form
-  - Office location with map
-  - Business hours information
-  - Alternative contact methods
-
-- `WaitlistPage.tsx`: Specialized page for waitlist management:
-  - Integration of WaitlistForm component
-  - Information about the waitlist process
-  - FAQ section regarding waitlist policies
-
-#### Utility Files
-- `types.ts`: Contains TypeScript interfaces and types for:
-  - Property data structures
-  - User profiles
-  - Form states
-  - API responses
-
-- `utils.ts`: Helper functions for:
-  - Date formatting
-  - Form validation
-  - Data transformation
-  - URL handling
-
-- `constants.ts`: Application constants including:
-  - API endpoints
-  - Configuration values
-  - Feature flags
-  - Static content
 
 #### Database Integration
 - `supabase.ts`: Configuration and client setup for Supabase connection
@@ -128,40 +82,50 @@ The project utilizes React with TypeScript for the frontend, Supabase for the ba
   - Implements sanitization for security
 
 #### API Integration
-- `api.ts`: Centralized API handling for:
-  - Property data fetching
-  - Waitlist submissions
-  - User authentication
-  - Error handling and retry logic
 
-- `emailService.ts`: Service for email functionality:
-  - Template selection logic
+- `send-email.js`: Service for email functionality:
   - Resend API integration
-  - Email queue management
-  - Delivery status tracking
+  - Had to make it a JS file due to limitations
+
+## Codebase Context
+The codebase follows a structured architectural pattern with clear separation of concerns:
+
+### Architectural Pattern
+- **MERN Stack**: Following best practices with clean separation of concerns
+- **Component Structure**: Using functional components with React hooks over class components
+- **API Design**: RESTful endpoints following resource-based naming conventions
+- **Error Handling**: Implementing try/catch patterns and returning meaningful error messages
+- **Security**: Sanitizing all user inputs and implementing proper authentication checks
+
+### Code Generation Preferences
+- TypeScript is used throughout the project
+- JSDoc comments are included for all functions
+- Component naming follows the pattern: `[Name]Component.tsx`
+- Service modules follow the naming pattern: `[name]Service.js`
+
+### Project-Specific Terminology
+- **Property**: A rental unit managed in the system
+- **Tenant**: An individual renting a property
+- **Owner**: A person who owns one or more properties
+- **Lease**: A contract between tenant and owner
+- **Maintenance Request**: A service request submitted by a tenant
 
 ## Design Decisions and Challenges
 
-### Real-time Updates vs. Polling
-I debated between implementing polling for updates and using Supabase's real-time functionality. The decision to use real-time updates was based on:
-1. Better user experience with immediate updates
-2. Reduced server load compared to frequent polling
-3. Simpler client-side implementation
-4. Lower latency for critical information changes
-
-However, this approach presented challenges with:
-- Managing subscription cleanup to prevent memory leaks
-- Handling offline scenarios gracefully
-- Ensuring consistent state across multiple connected clients
-
 ### Automated Email System Architecture
-The decision to implement automated welcome emails using SQL triggers rather than client-side logic provides several benefits:
-1. Reliability - emails trigger directly from database events
-2. Reduced complexity in frontend code
-3. Better separation of concerns
-4. Improved maintainability
+The system implements a hybrid approach for email notifications:
 
-During development, I considered a queue-based system for emails but opted for direct triggers due to the relatively low volume of expected waitlist signups and the simplicity of implementation.
+1. **Database Insertion + Direct API Call**: The WaitlistForm component:
+   - Inserts new email records into Supabase
+   - Directly calls the send-email API endpoint after successful database insertion
+   - Provides immediate user feedback regardless of email status
+
+2. **Redundant SQL Triggers**: As a fallback mechanism, SQL triggers can also initiate email notifications:
+   - Executes upon new waitlist entry creation
+   - Provides redundancy in case the direct API call fails
+   - Ensures no signups are missed even if client-side operations fail
+
+This dual approach ensures reliability while maintaining a responsive user experience. The direct API call provides immediate confirmation, while the database triggers serve as a safety net. The Databse triggers are still a little buggy.
 
 ### Component Architecture
 PropertyCard components were designed to be fully reusable, accepting standardized property data objects. This approach:
@@ -182,21 +146,6 @@ I implemented a hybrid approach with immediate client-side feedback combined wit
 
 ## Implementation Details
 
-### Database Schema
-The database design implements relationships between:
-- Properties (with metadata, images, availability)
-- Waitlist entries (with user preferences and contact info)
-- Users (for staff accounts with management permissions)
-
-Indexes were created to optimize property searches and waitlist queries, balancing query performance with write efficiency.
-
-### Authentication Flow
-I implemented a simplified authentication flow for property managers that:
-1. Uses email-based magic links for passwordless login
-2. Sets appropriate session duration
-3. Implements role-based permissions
-4. Handles session expiration gracefully
-
 ### Responsive Design Implementation
 The site was built with a mobile-first approach, using:
 - Fluid typography with relative units
@@ -213,6 +162,22 @@ The following features are planned for future versions:
 5. Enhanced analytics for property performance
 
 ## Contributions
+Used Github Copilot and ChatGPT to help develop the frontend.
+
+## About
+Prime Erie Rentals provides quality housing options near LECOM and Presque Isle. Our properties are carefully maintained and selected for their prime locations.
+
+## Available Properties
+- Single Family Homes
+- Properties near LECOM
+- Convenient Millcreek locations
+
+## Contact
+Visit [primeerierentals.com](https://primeerierentals.com) to:
+- View available properties
+- Join our waitlist
+- Request property information
+
 Used Github Copilot and ChatGPT to help develop the frontend.
 
 ## About
