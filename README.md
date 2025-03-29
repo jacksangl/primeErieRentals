@@ -91,7 +91,6 @@ The project utilizes React with TypeScript for the frontend, Supabase for the ba
 The codebase follows a structured architectural pattern with clear separation of concerns:
 
 ### Architectural Pattern
-- **MERN Stack**: Following best practices with clean separation of concerns
 - **Component Structure**: Using functional components with React hooks over class components
 - **API Design**: RESTful endpoints following resource-based naming conventions
 - **Error Handling**: Implementing try/catch patterns and returning meaningful error messages
