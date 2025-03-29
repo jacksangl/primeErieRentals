@@ -1,5 +1,5 @@
 # Prime Erie Rentals
-#### Video Demo: https://youtube.com
+#### Video Demo: https://youtu.be/1cxIrhUopwk
 
 ## Project Overview
 This website serves as the digital presence for Prime Erie Rentals, a property management company specializing in rental properties near LECOM and Presque Isle in Erie, Pennsylvania. The platform features an automated waitlist system, real-time property listings, and integrated email notifications for prospective tenants.
