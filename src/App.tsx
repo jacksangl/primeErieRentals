@@ -17,7 +17,7 @@ function App() {
       sqft: 1100,
       available: false,
     },
-    {
+    /*{
       id: 2,
       image: 'pictures/single_family/front.jpg',
       title: 'Single Family House - near LECOM, Presque Isle',
@@ -38,7 +38,7 @@ function App() {
       baths: 1.5,
       sqft: 1200,
       available: false,
-    },
+    },*/
     {
       id: 4,
       image: 'pictures/4unit/front.jpg',
